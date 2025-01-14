@@ -4,8 +4,14 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix, classification_report
+import joblib
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
-df = pd.read_csv("500hits.csv", encoding="latin-1")
+stats_file = os.getenv("BASEBALL_STATS_FILE")
+
+df = pd.read_csv(stats_file, encoding="latin-1")
 
 X = df.drop(columns=["PLAYER", "HOF"])
 y = df["HOF"]
@@ -23,12 +29,16 @@ y_pred = model.predict(X_test)
 
 accuracy = accuracy_score(y_test, y_pred)
 
-print("Confusion Matrix: ")
+# print("Confusion Matrix: ")
 cm = confusion_matrix(y_test, y_pred)
-print(cm)
+# print(cm)
 
-print("\nClassification Report: ")
+# print("\nClassification Report: ")
 cr = classification_report(y_test, y_pred)
-print(cr)
+# print(cr)
 
-print(f"Model Accuracy: {accuracy:.2f}")
+# print(f"Model Accuracy: {accuracy:.2f}")
+
+joblib.dump(model, "hof_model.pkl")
+
+joblib.dump(scaler, "scaler.pkl")

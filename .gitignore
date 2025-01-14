@@ -1,2 +1,6 @@
 venv
 500hits.csv
+__pycache__
+.env
+hof_model.pkl
+scaler.pkl
