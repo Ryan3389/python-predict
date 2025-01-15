@@ -1,0 +1,4 @@
+.env
+500hits.csv
+hof_model.pkl
+scaler.pkl
