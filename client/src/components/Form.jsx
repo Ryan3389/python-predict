@@ -1,14 +1,18 @@
-function Form({ fields }) {
+function Form({ fields, handleChange, handleFormSubmit }) {
     //Step 3
     return (
         <section className="form-section">
-            <form>
+            <form onSubmit={handleFormSubmit}>
                 {fields.map((field, index) => (
-                    <div className="input-container">
-                        <label>{field.label}</label>
+                    <div key={index} className="input-container">
+                        <label htmlFor={field.name}>{field.label}</label>
                         <input
                             type={field.type}
                             name={field.name}
+                            id={field.name}
+                            placeholder={field.placeholder}
+                            onChange={handleChange}
+                            value={FormData[field.name]}
                         />
                     </div>
                 ))}

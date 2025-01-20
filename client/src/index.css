@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
     margin: 0;
     padding: 0;
@@ -6,15 +10,7 @@
 
 /* main {
     height: 100vh;
-    background-color: #F3EFDE;
-} */
 
-/* main {
-    height: 100vh;
-    background-color: #DFD5BA;
-} */
-
-main {
-    height: 100vh;
-    /* background-color: #E6D5B5; */
 }
+
+*/
