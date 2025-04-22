@@ -1,11 +1,30 @@
 # Imports
 from flask import Flask, request, jsonify
 from mongoengine import Document, StringField, connect
+import requests
 import pandas as pd
 import joblib
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
-model = joblib.load('hof_model.pkl')
-scaler = joblib.load('scaler.pkl')
+hof_model_url = os.getenv("HOF_MODEL_FILE")
+hof_model_path = "download_hof_model.pkl"
+
+scaler_model_url = os.getenv("SCALER_MODEL_FILE")
+scaler_model_path = "download_scaler_model.pkl"
+
+with open(hof_model_path, "wb") as f:
+    response = requests.get(hof_model_url)
+    f.write(response.content)
+
+with open(scaler_model_path, "wb") as f:
+    response = requests.get(scaler_model_url)
+    f.write(response.content)
+
+model = joblib.load(hof_model_path)
+scaler = joblib.load(scaler_model_path)
+
 
 app = Flask(__name__)
 
