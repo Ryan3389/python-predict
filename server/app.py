@@ -28,7 +28,8 @@ scaler = joblib.load(scaler_model_path)
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["http://localhost:3000/"])
+
 
 
 
