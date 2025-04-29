@@ -6,6 +6,7 @@ import pandas as pd
 import joblib
 from dotenv import load_dotenv
 import os
+from flask_cors import CORS
 load_dotenv()
 
 hof_model_url = os.getenv("HOF_MODEL_FILE")
@@ -27,10 +28,11 @@ scaler = joblib.load(scaler_model_path)
 
 
 app = Flask(__name__)
+CORS(app)
 
 
-# Database Connection
-connect("hof-predict", host="mongodb://localhost:27017/hof-predict")
+
+# db url
 
 class User(Document): 
     first_name = StringField(required=True)
