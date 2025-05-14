@@ -5,13 +5,114 @@
 }
 
 body {
+    background-color: #161A20;
+    color: #E8F0F4;
+    /* background-color: #E8F0F4;
+    color: #161A20; */
+}
+
+/* Landing Page */
+
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin: auto;
+    height: 70vh;
+}
+
+
+
+.hero-section h1 {
+    font-size: 2.125rem;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 1.5em;
+}
+
+.hero-img {
+    height: 150px;
+}
+
+.cta-link,
+input[type="submit"] {
+    background-color: #08A4F6;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+/* Predict Page */
+
+.form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 60%;
+    margin: auto;
+    flex-direction: column;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 4px 8px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.form-section h1 {
+    font-size: 2.125rem;
+    margin: 10px 0;
+}
+
+.results-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 60vh;
+    width: 80%;
+    margin: auto;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.btn-container button {
+    margin: 0 10px;
+}
+
+.bar-chart-wrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 60vh;
+    align-items: center;
+    /* width: 100%; */
+    /* max-width: 800px; */
+    /* height: 400px; */
+}
+
+/* body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background: linear-gradient(-45deg, #1B1D2A, #2C2F40, #4a506c, #3A3D55);
     background-size: 400% 400%;
     animation: gradientBG 30s ease infinite;
-}
+} */
 
-@keyframes gradientBG {
+/* @keyframes gradientBG {
     0% {
         background-position: 0% 50%;
     }
@@ -23,11 +124,11 @@ body {
     100% {
         background-position: 0% 50%;
     }
-}
+} */
 
 
 /* Header + Navbar*/
-header {
+/* header {
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -77,11 +178,11 @@ nav {
 
 .nav-cta {
     text-align: center;
-}
+} */
 
 /* Landing Page*/
 /* Hero - top */
-.hero-section {
+/* .hero-section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,8 +201,6 @@ nav {
 
 
 .hero-article {
-    /* display: flex;
-    justify-content: space-between; */
     color: whitesmoke;
     font-weight: bolder;
     align-items: center;
@@ -148,13 +247,13 @@ nav {
     padding: 15px 30px;
     transition: 0.5s;
     font-size: 1.4rem;
-}
+} */
 
 
 
 /* Predict Page*/
 
-.form-section {
+/* .form-section {
     width: 60%;
     height: 80vh;
     display: flex;
@@ -206,10 +305,10 @@ footer {
     border: 1px solid white;
     height: 80%;
     width: 50%;
-}
+} */
 
 /*Media Queries for screen sizes*/
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
     .mlb-logo {
         height: 30px;
     }
@@ -228,4 +327,4 @@ footer {
     nav {
         font-size: 1rem
     }
-}
+} */

@@ -2,21 +2,30 @@ import { Link } from "react-router-dom"
 import mlbLogo from '../assets/mlbLogo.webp'
 function LandingPage() {
     return (
-        <section className="hero-top">
-            <article className="hero-article">
-                {/* <p>EST. 1936</p> */}
-                <h1>MLB Hall of Fame Predict</h1>
-                {/* <p>Counless Stars</p> */}
+        <section className="hero-section">
+            <article className="hero-intro">
+                <h1>Welcome to Best <br />Basketball Acadamy</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim eaque fuga expedita! Aliquid asperiores alias aut quas id, impedit praesentium similique ipsa fugit. Facere, cum?</p>
+                <Link to={"/predict"} className="cta-link">Start Predicting</Link>
             </article>
-
-            <article className='img-article'>
-                <img className='logo' src={mlbLogo} alt="" />
-                <h1>Predicting Tomorrow's Stars</h1>
-                <Link className="btn" to="/predict">Start Predicting</Link>
-            </article>
+            <img src={mlbLogo} alt="MLB Logo" className="hero-img" />
         </section>
     )
 }
+// function LandingPage() {
+//     return (
+//         <section className="hero-top">
+//             {/* <article className="hero-article">
+
+//             </article>
+
+//             <article className='img-article'>
+//                 <h1>Predicting Tomorrow's Stars</h1>
+//                 <Link className="btn" to="/predict">Start Predicting</Link>
+//             </article> */}
+//         </section>
+//     )
+// }
 
 export default LandingPage
 // import { Link } from "react-router-dom"

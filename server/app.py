@@ -2,12 +2,21 @@
 from flask import Flask, request, jsonify
 from mongoengine import Document, StringField, connect
 import requests
-import pandas as pd
 import joblib
 from dotenv import load_dotenv
 import os
 from flask_cors import CORS
+import pandas as pd
+import numpy as np
+from model import feature_importance
+from compare import hof_vectors
+from sklearn.metrics.pairwise import cosine_similarity
+
+top_hof_players = hof_vectors
+print(top_hof_players)
+
 load_dotenv()
+
 
 hof_model_url = os.getenv("HOF_MODEL_FILE")
 hof_model_path = "download_hof_model.pkl"
@@ -25,6 +34,8 @@ with open(scaler_model_path, "wb") as f:
 
 model = joblib.load(hof_model_path)
 scaler = joblib.load(scaler_model_path)
+
+
 
 
 app = Flask(__name__)
@@ -56,42 +67,19 @@ def get_player_stats():
 
     scaled_player_stats = scaler.transform(player_stats)
     
+    # player_vector = scaled_player_stats.to_numpy()
+    
+    similarity_score = cosine_similarity(scaled_player_stats, hof_vectors)
+    print("similarity score below: ")
+    # print(similarity_score)
+
+    most_similar_index = np.argmax(similarity_score)
+    print("Most similar plyer score below:")
+    print(most_similar_index)
+    
     model_prediction = model.predict(scaled_player_stats)
-    
-    return jsonify("Hall of Fame: Yes" if model_prediction[0] == 1 else "Hall of Fame: No")
-    # return "Hall of Fame: Yes" if model_prediction[0] == 1 else "Hall of Fame: No"
-    
-
-   
-    
-    
-    
-    
-
-
-# @app.route('/api/predict', methods=["POST"])
-# def get_player_stats():
-#     data = request.get_json()
-
-    # player_stats = pd.DataFrame({
-    #     "YRS": [data['YRS']], # YRS
-    #     "G": [data['G']], # G
-    #     "H": [data['H']], # H
-    #     "2B": [data['2B']], # 2B
-    #     "HR": [data['HR']], # HR
-    #     "RBI": [data['RBI']], # RBI
-    #     "BA": [data['BA']] # BA
-    # })
-    
-    
-    # scaled_player_stats = scaler.transform(player_stats)
-    
-    # model_prediction = model.predict(scaled_player_stats)
-    
-
-    # return "Hall of Fame: Yes" if model_prediction[0] == 1 else "Hall of Fame: No"
-    
-
-
-    
-
+    json_data = feature_importance.to_json(orient='records')
+    return jsonify({
+        "prediction": "Hall of Fame: Yes" if model_prediction[0] == 1 else "Hall of Fame: No",
+        "feature_importances": json_data
+    })
