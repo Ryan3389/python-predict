@@ -9,6 +9,8 @@ stats_file = os.getenv("BASEBALL_STATS_FILE")
 df = pd.read_csv(stats_file, encoding="latin-1")
 hof_players = df[df["HOF"] == 1]
 
+print(hof_players.iloc[47])
+
 hof_vectors = hof_players[["YRS", "G", "H", "2B", "HR", "RBI", "BA"]].to_numpy()
 
 

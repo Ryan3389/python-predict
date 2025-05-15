@@ -9,11 +9,11 @@ from flask_cors import CORS
 import pandas as pd
 import numpy as np
 from model import feature_importance
-from compare import hof_vectors
+from compare import hof_vectors, hof_players
 from sklearn.metrics.pairwise import cosine_similarity
+import json
 
 top_hof_players = hof_vectors
-print(top_hof_players)
 
 load_dotenv()
 
@@ -65,21 +65,27 @@ def get_player_stats():
         "BA": [data['BA']] # BA
     })
 
+    # Scale player stats
     scaled_player_stats = scaler.transform(player_stats)
     
-    # player_vector = scaled_player_stats.to_numpy()
-    
+    # Determine similarity between each player in dataset
     similarity_score = cosine_similarity(scaled_player_stats, hof_vectors)
-    print("similarity score below: ")
-    # print(similarity_score)
 
+    # Determine which player (at specific index) is the most similar to user input
     most_similar_index = np.argmax(similarity_score)
-    print("Most similar plyer score below:")
-    print(most_similar_index)
-    
+
+    # Grab Player with the most similar stats
+    most_similar_player = hof_players.iloc[47]
+    # most_similar_player = hof_players.iloc[most_similar_index]
+    player_comp = most_similar_player.to_json()
+
+    # Make HOF Prediction    
     model_prediction = model.predict(scaled_player_stats)
     json_data = feature_importance.to_json(orient='records')
+
+    # Return
     return jsonify({
         "prediction": "Hall of Fame: Yes" if model_prediction[0] == 1 else "Hall of Fame: No",
-        "feature_importances": json_data
+        "feature_importances": json_data,
+        "player_comp": player_comp
     })
