@@ -105,226 +105,62 @@ input[type="submit"] {
     /* height: 400px; */
 }
 
-/* body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: linear-gradient(-45deg, #1B1D2A, #2C2F40, #4a506c, #3A3D55);
-    background-size: 400% 400%;
-    animation: gradientBG 30s ease infinite;
-} */
+/* PLAYER COMP SECTION */
 
-/* @keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-} */
-
-
-/* Header + Navbar*/
-/* header {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    color: whitesmoke;
-    border-bottom: 1px solid rgba(245, 222, 179, 0.598);
-}
-
-nav {
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 12vh;
-    font-size: 1.2rem;
-    padding-top: 15px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-}
-
-.nav-left {
-    display: flex;
-}
-
-.nav-left p {
-    padding-left: 10px;
-}
-
-.mlb-logo {
-    height: 50px;
-}
-
-
-
-.nav-right {
-    display: flex;
-    align-items: center;
-}
-
-
-.nav-right a {
-    margin: 0 10px;
-    border: 1px solid;
-    padding: 5px 20px;
-    text-decoration: none;
-    color: #000;
-}
-
-.nav-cta {
-    text-align: center;
-} */
-
-/* Landing Page*/
-/* Hero - top */
-/* .hero-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80%;
-}
-
-.hero-top {
-    padding-top: 40px;
-    height: 80vh;
-}
-
-.hero-top h1 {
-    text-align: center;
-    font-size: 2rem;
-}
-
-
-.hero-article {
-    color: whitesmoke;
-    font-weight: bolder;
-    align-items: center;
+.player-comp-section {
+    height: 50vh;
     width: 80%;
     margin: auto;
 }
 
-.hero-article h1 {
-    padding-bottom: 20px;
-
-}
-
-.img-article {
+.comparison-section {
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
+    gap: 20px;
 }
 
-.img-article .logo {
-    height: 200px;
-}
-
-.img-article h1 {
-    padding: 20px;
-    color: whitesmoke;
-    font-weight: bolder;
-}
-
-
-.img-article .btn {
-    background-color: wheat;
-    width: 20%;
-    padding: 10px 20px;
-    border-radius: 5px;
-    color: #1B1D2A;
-    border: none;
-    font-size: 1.2rem;
+.player-comp-section h1 {
     text-align: center;
-
+    margin: 2em
 }
 
-.img-article .btn:hover {
-    padding: 15px 30px;
-    transition: 0.5s;
-    font-size: 1.4rem;
-} */
-
-
-
-/* Predict Page*/
-
-/* .form-section {
-    width: 60%;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    margin: auto;
+/* Table */
+.content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    /* min-width: 400px; */
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.input-container input {
-    width: 100%;
+.content-table thead tr {
+    background-color: #222;
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
 }
 
-.form-section label {
-    color: whitesmoke;
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
 }
 
-.form-section input {
-    margin: 5px 0;
+.content-table tbody tr {
+    border-bottom: 1px solid #ddd
 }
 
-input[type="submit"] {
-    background-color: wheat;
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px 20px;
-    border-radius: 5px;
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3ff;
 }
 
-input[type="submit"]:hover {
-    background-color: rgba(245, 222, 179, 0.644);
-    transition: 0.5s;
-    cursor: pointer;
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #222
 }
 
-form {
-    height: 80%;
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #222;
 }
-
-footer {
-    display: flex;
-    height: 8vh;
-    color: whitesmoke;
-    align-items: center;
-    justify-content: center;
-    border-top: 1px solid rgba(245, 222, 179, 0.598);
-}
-
-
-.results-article {
-    border: 1px solid white;
-    height: 80%;
-    width: 50%;
-} */
-
-/*Media Queries for screen sizes*/
-/* @media only screen and (max-width: 600px) {
-    .mlb-logo {
-        height: 30px;
-    }
-
-    nav p,
-    a {
-        font-size: 0.8rem
-    }
-
-    .nav-right a {
-        margin: 0 5px;
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    nav {
-        font-size: 1rem
-    }
-} */

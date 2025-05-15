@@ -75,8 +75,8 @@ def get_player_stats():
     most_similar_index = np.argmax(similarity_score)
 
     # Grab Player with the most similar stats
-    most_similar_player = hof_players.iloc[47]
-    # most_similar_player = hof_players.iloc[most_similar_index]
+   
+    most_similar_player = hof_players.iloc[most_similar_index]
     player_comp = most_similar_player.to_json()
 
     # Make HOF Prediction    

@@ -1,6 +1,9 @@
 import Form from "../components/Form"
 import { useState } from "react"
 import BarGraph from "../components/BarChart"
+import PredictionResults from "../components/PredictionResults"
+import PlayerCompSection from "../components/PlayerComp"
+import GraphComponent from "../components/GraphComponent"
 function PredictPage() {
     const [formState, setFormState] = useState({
         YRS: null,
@@ -121,73 +124,29 @@ function PredictPage() {
                 </section>
                 :
                 pageLayout === "prediction" ?
-                    <section className="results-section">
-                        <div className="btn-container">
-                            <button onClick={handleViewResults}>View Results</button>
-                            <button onClick={handleViewGraph}>View Graph</button>
-                        </div>
-
-                        <h2>Results</h2>
-                        <p>{predictResults}</p>
-                    </section>
+                    <PredictionResults
+                        viewResults={handleViewResults}
+                        viewGraph={handleViewGraph}
+                        viewPlayerComp={handleViewPlayerComp}
+                        results={predictResults}
+                    />
                     :
                     pageLayout === "graph" ?
-                        <>
-                            <div className="btn-container">
-                                <button onClick={handleViewResults}>View Results</button>
-                                <button onClick={handleViewGraph}>View Graph</button>
-                                <button onClick={handleViewPlayerComp}>View Player Comparison</button>
-                            </div>
-                            <BarGraph
-                                graphStats={graphData}
-                            />
-                        </>
-                        :
-                        <section className="player-comp-section">
-                            <h1>View Your Player Comparison</h1>
-                            <article>
-                                <h3>Player Name: {playerCompStats.playerName}</h3>
-                                <p>Years Played: {playerCompStats.YRS}</p>
-                                <p>Games Played: {playerCompStats.G}</p>
-                                <p>Career Hits Total: {playerCompStats.H}</p>
-                                <p>Home Runs: {playerCompStats.HR}</p>
-                                <p>Total Career RBI: {playerCompStats.RBI}</p>
-                                <p>Career Batting Average: {playerCompStats.BA}</p>
-                            </article>
-
-                        </section>
-            }
-            {/* {pageLayout === "form" ?
-                <section className="form-section">
-                    <Form
-                        fields={fields}
-                        formData={formState}
-                        handleChange={handleChange}
-                        handleFormSubmit={handleFormSubmit}
-                    />
-                </section>
-                : pageLayout === "prediction" ?
-                    <section className="results-section">
-                        <div className="btn-container">
-                            <button onClick={handleViewResults}>View Results</button>
-                            <button onClick={handleViewGraph}>View Graph</button>
-                        </div>
-
-                        <h2>Results</h2>
-                        <p>{predictResults}</p>
-                    </section>
-                    :
-                    <>
-                        <div className="btn-container">
-                            <button onClick={handleViewResults}>View Results</button>
-                            <button onClick={handleViewGraph}>View Graph</button>
-                        </div>
-                        <BarGraph
+                        <GraphComponent
                             graphStats={graphData}
-                        />
-                    </>
+                            viewResults={handleViewResults}
+                            viewGraph={handleViewGraph}
+                            viewPlayerComp={handleViewPlayerComp}
 
-            } */}
+                        />
+                        :
+                        <PlayerCompSection
+                            playerCompStats={playerCompStats}
+                            viewResults={handleViewResults}
+                            viewGraph={handleViewGraph}
+                            viewPlayerComp={handleViewPlayerComp}
+                        />
+            }
         </>
     )
 }
