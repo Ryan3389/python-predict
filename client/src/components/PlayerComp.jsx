@@ -1,11 +1,11 @@
 function PlayerCompSection({ viewResults, viewGraph, viewPlayerComp, playerCompStats }) {
     return (
-        <section className="player-comp-section">
-            <div className="btn-container">
+        <section className="results-section">
+            <article className="btn-container">
                 <button onClick={viewResults}>View Results</button>
                 <button onClick={viewGraph}>View Graph</button>
                 <button onClick={viewPlayerComp}>View Player Comp</button>
-            </div>
+            </article>
             <h1>View Your Player Comparison</h1>
             <article className="comparison-section">
                 <table className="content-table">

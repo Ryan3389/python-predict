@@ -1,3 +1,4 @@
+
 import Form from "../components/Form"
 import { useState } from "react"
 import BarGraph from "../components/BarChart"
@@ -129,6 +130,7 @@ function PredictPage() {
                         viewGraph={handleViewGraph}
                         viewPlayerComp={handleViewPlayerComp}
                         results={predictResults}
+                        playerCompStats={playerCompStats}
                     />
                     :
                     pageLayout === "graph" ?

@@ -9,7 +9,7 @@ from flask_cors import CORS
 import pandas as pd
 import numpy as np
 from model import feature_importance
-from compare import hof_vectors, hof_players
+from compare import hof_vectors, hof_players, df
 from sklearn.metrics.pairwise import cosine_similarity
 import json
 
@@ -76,6 +76,7 @@ def get_player_stats():
 
     # Grab Player with the most similar stats
    
+
     most_similar_player = hof_players.iloc[most_similar_index]
     player_comp = most_similar_player.to_json()
 
@@ -85,7 +86,8 @@ def get_player_stats():
 
     # Return
     return jsonify({
-        "prediction": "Hall of Fame: Yes" if model_prediction[0] == 1 else "Hall of Fame: No",
+        "prediction": "Based on your input, HOF: YES. Check out your player comparable below!" if model_prediction[0] == 1 else "Based on your input, HOF: NO. Check out your player comparable below!",
         "feature_importances": json_data,
         "player_comp": player_comp
     })
+   

@@ -33,9 +33,9 @@ function BarGraph({ graphStats }) {
 
     return (
         <>
-            <section className='bar-chart-wrapper'>
+            <article className='bar-chart-wrapper'>
                 <Bar className="bar-chart" options={options} data={graphStats} />
-            </section>
+            </article>
 
         </>
     )
