@@ -1,4 +1,6 @@
-function PlayerCompSection({ viewResults, viewGraph, viewPlayerComp, playerCompStats }) {
+function PlayerCompSection({ viewResults, viewGraph, viewPlayerComp, playerCompStats, formState }) {
+    console.log("State below is from the form: ")
+    console.log(formState)
     return (
         <section className="results-section">
             <article className="btn-container">
@@ -21,13 +23,13 @@ function PlayerCompSection({ viewResults, viewGraph, viewPlayerComp, playerCompS
                         </tr>
                     </thead>
                     <tbody>
-                        <td>{playerCompStats.playerName}</td>
-                        <td>{playerCompStats.YRS}</td>
-                        <td>{playerCompStats.G}</td>
-                        <td>{playerCompStats.H}</td>
-                        <td>{playerCompStats.HR}</td>
-                        <td>{playerCompStats.RBI}</td>
-                        <td>{playerCompStats.BA}</td>
+                        <td>User input player</td>
+                        <td>{formState.YRS}</td>
+                        <td>{formState.G}</td>
+                        <td>{formState.H}</td>
+                        <td>{formState.HR}</td>
+                        <td>{formState.RBI}</td>
+                        <td>{formState.BA}</td>
                     </tbody>
                 </table>
                 <table className="content-table">

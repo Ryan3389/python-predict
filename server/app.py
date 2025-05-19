@@ -12,6 +12,7 @@ from model import feature_importance
 from compare import hof_vectors, hof_players, df
 from sklearn.metrics.pairwise import cosine_similarity
 import json
+from flask import Flask, send_from_directory
 
 top_hof_players = hof_vectors
 
@@ -37,9 +38,10 @@ scaler = joblib.load(scaler_model_path)
 
 
 
+app = Flask(__name__, static_folder='../client/dist', static_url_path='')
 
-app = Flask(__name__)
-CORS(app, origins=["http://localhost:3000/"])
+# app = Flask(__name__)
+# CORS(app, origins=["http://localhost:3000/"])
 
 
 
@@ -50,6 +52,15 @@ class User(Document):
     first_name = StringField(required=True)
     last_name = StringField(required=True)
     email = StringField(required=True)
+
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/api/predict', methods=["POST"])
 def get_player_stats():

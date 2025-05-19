@@ -17,14 +17,14 @@ function PredictPage() {
 
     })
     const [playerCompStats, setPlayerCompStats] = useState({
-        playerName: "", // Works
+        playerName: "",
         YRS: null,
         G: null,
         H: null,
         doubles: null,
         homeRuns: null,
-        RBI: null, // Works
-        BA: null // Works
+        RBI: null,
+        BA: null
     })
     const [pageLayout, setPageLayout] = useState("form")
     const [predictResults, setPredictResults] = useState(null)
@@ -61,7 +61,7 @@ function PredictPage() {
                         label: "Player Stats",
                         data: [0.40, 0.02, 0.82, -0.27, 0.3, -0.02, 1.077],
                         backgroundColor: "rgba(255, 99, 132, 0.2)",
-                        borderColor: "rgba(54, 162, 235, 1",
+                        borderColor: "rgba(54, 162, 235, 1)",
                         borderWidth: 1
                     }
                 ]
@@ -147,6 +147,7 @@ function PredictPage() {
                             viewResults={handleViewResults}
                             viewGraph={handleViewGraph}
                             viewPlayerComp={handleViewPlayerComp}
+                            formState={formState}
                         />
             }
         </>
