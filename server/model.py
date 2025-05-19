@@ -10,7 +10,8 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
-stats_file = os.getenv("BASEBALL_STATS_FILE")
+# stats_file = os.getenv("BASEBALL_STATS_FILE")
+stats_file = "500hits.csv"
 
 df = pd.read_csv(stats_file, encoding="latin-1")
 
