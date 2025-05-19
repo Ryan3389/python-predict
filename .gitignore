@@ -1,6 +1,5 @@
 __pycache__
 venv
-500hits.csv
 download_hof_model.pkl
 download_scaler_model.pkl
 
