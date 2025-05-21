@@ -1,5 +1,4 @@
 function Form({ fields, handleChange, handleFormSubmit }) {
-    //Step 3
     return (
         <form onSubmit={handleFormSubmit}>
             {fields.map((field, index) => (

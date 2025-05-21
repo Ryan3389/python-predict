@@ -5,7 +5,7 @@ function LandingPage() {
         <section className="hero-section">
             <article className="hero-intro">
                 <h1>Welcome to Baseball <br />Hall of Fame Predictor</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim eaque fuga expedita! Aliquid asperiores alias aut quas id, impedit praesentium similique ipsa fugit. Facere, cum?</p>
+                <p>Welcome to LegendMeter. Enter your favourite players career stats, and predict if they will make it into the Hall of Fame. This AI model is trained with player stats from MLB's top 500 hits.</p>
                 <Link to={"/predict"} className="cta-link">Start Predicting</Link>
             </article>
             <img src={mlbLogo} alt="MLB Logo" className="hero-img" />

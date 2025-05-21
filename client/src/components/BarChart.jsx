@@ -29,7 +29,11 @@ const barChartData = {
 }
 
 function BarGraph({ graphStats }) {
-    const options = {};
+    const options = {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 2, // width / height
+    };
 
     return (
         <>

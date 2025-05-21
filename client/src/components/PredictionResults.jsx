@@ -1,14 +1,16 @@
-function PredictionResults({ viewResults, viewGraph, viewPlayerComp, results, playerCompStats }) {
+import { Link } from "react-router-dom"
+function PredictionResults({ viewResults, viewGraph, viewPlayerComp, results, playerCompStats, newPrediction }) {
     return (
         <section className="results-section">
             <article className="btn-container">
                 <button onClick={viewResults}>View Results</button>
-                <button onClick={viewGraph}>View Graph</button>
+                <button onClick={viewGraph}>Model Statistic Graph</button>
                 <button onClick={viewPlayerComp}>View Player Comparison</button>
             </article>
 
             <article className="prediction-results">
                 <p>{results}</p>
+                <button onClick={newPrediction} className="new-prediction-btn">Make a New Prediction</button>
             </article>
 
             <article className="results-player-comparable">

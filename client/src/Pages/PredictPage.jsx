@@ -1,4 +1,3 @@
-
 import Form from "../components/Form"
 import { useState } from "react"
 import BarGraph from "../components/BarChart"
@@ -112,10 +111,15 @@ function PredictPage() {
         setPageLayout("comp")
     }
 
+    const handleNewPrediction = () => {
+        setPageLayout("form")
+    }
+
     return (
         <>
             {pageLayout === "form" ?
                 <section className="form-section">
+                    <h2>Make Your Prediction</h2>
                     <Form
                         fields={fields}
                         formData={formState}
@@ -129,11 +133,13 @@ function PredictPage() {
                         viewResults={handleViewResults}
                         viewGraph={handleViewGraph}
                         viewPlayerComp={handleViewPlayerComp}
+                        newPrediction={handleNewPrediction}
                         results={predictResults}
                         playerCompStats={playerCompStats}
                     />
                     :
                     pageLayout === "graph" ?
+
                         <GraphComponent
                             graphStats={graphData}
                             viewResults={handleViewResults}
@@ -141,6 +147,8 @@ function PredictPage() {
                             viewPlayerComp={handleViewPlayerComp}
 
                         />
+
+
                         :
                         <PlayerCompSection
                             playerCompStats={playerCompStats}

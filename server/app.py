@@ -14,6 +14,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import json
 from flask import Flask, send_from_directory
 
+
 top_hof_players = hof_vectors
 
 load_dotenv()
