@@ -60,9 +60,9 @@ input[type="submit"] {
     margin-top: 5px;
 }
 
-input {
+/* input {
     color: #222;
-}
+} */
 
 /* Predict Page */
 .form-section {
@@ -86,6 +86,7 @@ input {
     padding: 4px 8px;
     border-radius: 5px;
     margin: 5px;
+    color: #222;
 }
 
 .form-section h1 {
@@ -228,6 +229,8 @@ input {
     font-weight: bold;
     color: #222;
 }
+
+
 
 @media only screen and (max-width: 1200px) {
 
